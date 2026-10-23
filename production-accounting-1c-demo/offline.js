@@ -6,6 +6,17 @@
   const now=()=>new Date().toISOString();
   const id=p=>p+'-'+crypto.randomUUID();
   const accounts=[['director','director','Директор'],['admin','admin','Администратор'],['finance','financeDirector','Финансовый директор'],['chief','chiefAccountant','Главный бухгалтер'],['priyom','receiver','Приёмщик сырья'],['lamsklad','laminationStorekeeper','Кладовщик ламинации'],['lamhead','laminationHead','Руководитель ламинации'],['lamoper','laminationOperator','Оператор ламинации'],['laser','laserResponsible','Ответственный лазера'],['vyshivka','embroidery','Цех вышивки'],['shveya','sewingHead','Руководитель швей']];
+  accounts.push(
+    ['operator','operator','Оператор участка'],['master','master','Мастер смены'],
+    ['departmentHead','departmentHead','Руководитель подразделения'],['productionHead','productionHead','Руководитель производства'],
+    ['planner','planner','Планировщик'],['b2bManager','b2bManager','Сотрудник B2B'],
+    ['rawStorekeeper','rawStorekeeper','Кладовщик сырья'],['receiver','sectionReceiver','Получатель участка'],
+    ['quality','quality','Контролер ОТК'],['finishedStorekeeper','finishedStorekeeper','Склад готовой продукции'],
+    ['picker','picker','Комплектовщик отгрузки'],['guard','guard','Охранник КПП'],
+    ['vishivkaOperator','vishivkaOperator','Оператор цеха вышивки'],
+    ['accessoryShopHead','accessoryShopHead','Начальник цеха (вышивка/ламинация)'],
+    ['materialStorekeeper','materialStorekeeper','Кладовщик сырья (адресный склад)']
+  );
   function seed(){
     const material={item_external_id:'DEMO-ECO',name:'Экокожа чёрная (демо)',series:'DEMO-01',unit:'м'};
     const item={id:'item-1',line_id:'1',name:'Комплект автомобильных чехлов (демо)',sku:'DEMO-001',planned_kits:100,accessories_issued_kits:0,handed_to_sewing_kits:0,not_delivered_kits:0,parts:[{id:'part-1',name:'Спинка',qty_per_kit:2,planned_qty:200,cut_qty:0},{id:'part-2',name:'Сиденье',qty_per_kit:2,planned_qty:200,cut_qty:0}],accessories:[{id:'acc-1',name:'Крепления',unit:'шт',qty_per_kit:4,planned_qty:400}]};
@@ -13,6 +24,8 @@
   }
   let db;
   try{db=JSON.parse(localStorage.getItem(KEY)||'null')||seed();}catch{db=seed();}
+  // Add new demo accounts to existing browsers without resetting their work or passwords.
+  for(const [username,role,name] of accounts)if(!db.users.some(u=>u.username===username))db.users.push({username,role,name,password:'demo',active:true});
   function save(){localStorage.setItem(KEY,JSON.stringify(db));}
   function fail(message,status=400){throw Object.assign(new Error(message),{status});}
   const find=(list,key,value)=>list.find(x=>x[key]===value)||fail('Запись не найдена',404);
@@ -112,8 +125,20 @@
     return new Response(JSON.stringify(result),{status,headers:{'Content-Type':'application/json'}});
   };
   window.addEventListener('DOMContentLoaded',()=>{
+    FRONT_ROLE.sectionReceiver='receiver';
+    for(const r of Object.keys(D.roles))if(!FULL_VISIBLE_ROLES.includes(r))FULL_VISIBLE_ROLES.push(r);
+    for(const [,r] of accounts)if(!USER_ROLES.includes(r))USER_ROLES.push(r);
     const banner=document.createElement('aside');banner.id='offlineNotice';banner.textContent='Демо без сервера · данные сохраняются только в этом браузере · вход: director / demo';
     banner.style.cssText='padding:8px 16px;background:#fff3cd;color:#573d00;text-align:center;font:13px system-ui;position:relative;z-index:10000';document.body.prepend(banner);
+    const label=document.createElement('label');label.textContent=' Рабочее место: ';
+    const select=document.createElement('select');select.setAttribute('aria-label','Выбрать демо-роль');
+    select.style.cssText='max-width:100%;padding:6px;margin:4px;border:1px solid #ab914d;border-radius:6px;background:white;color:#222';
+    const placeholder=document.createElement('option');placeholder.value='';placeholder.textContent='Выберите роль — войти в демо';select.append(placeholder);
+    for(const [username,r,name] of accounts){const option=document.createElement('option');option.value=username;option.textContent=name+' ('+username+')';select.append(option);}
+    const syncRole=()=>{let session;try{session=JSON.parse(localStorage.getItem(SESSION)||'null')}catch{}select.value=session?.token?.startsWith('offline:')?session.user:'';};syncRole();
+    select.addEventListener('change',async()=>{if(!select.value)return;select.disabled=true;try{const result=await apiLogin(select.value,'demo');if(result.ok&&startSession(result.session)){render();window.scrollTo(0,0);}else{alert(result.error||'Войдите с вашим изменённым паролем');syncRole();}}finally{select.disabled=false;}});
+    label.append(select);banner.append(label);
+
     const note=document.createElement('p');note.textContent='Другие логины: admin, priyom, lamsklad, lamhead, lamoper, laser, vyshivka, shveya. Пароль: demo. Не используйте реальные пароли и личные данные.';note.style.cssText='font:12px system-ui;color:#666;text-align:center;padding:8px 16px';document.body.append(note);
   });
 })();
