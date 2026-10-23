@@ -128,9 +128,9 @@
     FRONT_ROLE.sectionReceiver='receiver';
     for(const r of Object.keys(D.roles))if(!FULL_VISIBLE_ROLES.includes(r))FULL_VISIBLE_ROLES.push(r);
     for(const [,r] of accounts)if(!USER_ROLES.includes(r))USER_ROLES.push(r);
-    const banner=document.createElement('aside');banner.id='offlineNotice';banner.textContent='Демо без сервера · данные сохраняются только в этом браузере · вход: director / demo';
+    const banner=document.createElement('aside');banner.id='offlineNotice';banner.textContent='';
     banner.style.cssText='padding:8px 16px;background:#fff3cd;color:#573d00;text-align:center;font:13px system-ui;position:relative;z-index:10000';document.body.prepend(banner);
-    const label=document.createElement('label');label.textContent=' Рабочее место: ';
+    const label=document.createElement('label');label.textContent='';
     const select=document.createElement('select');select.setAttribute('aria-label','Выбрать демо-роль');
     select.style.cssText='max-width:100%;padding:6px;margin:4px;border:1px solid #ab914d;border-radius:6px;background:white;color:#222';
     const placeholder=document.createElement('option');placeholder.value='';placeholder.textContent='Выберите роль — войти в демо';select.append(placeholder);
