@@ -128,16 +128,6 @@
     FRONT_ROLE.sectionReceiver='receiver';
     for(const r of Object.keys(D.roles))if(!FULL_VISIBLE_ROLES.includes(r))FULL_VISIBLE_ROLES.push(r);
     for(const [,r] of accounts)if(!USER_ROLES.includes(r))USER_ROLES.push(r);
-    const banner=document.createElement('aside');banner.id='offlineNotice';banner.textContent='';
-    banner.style.cssText='padding:8px 16px;background:#fff3cd;color:#573d00;text-align:center;font:13px system-ui;position:relative;z-index:10000';document.body.prepend(banner);
-    const label=document.createElement('label');label.textContent='';
-    const select=document.createElement('select');select.setAttribute('aria-label','Выбрать демо-роль');
-    select.style.cssText='max-width:100%;padding:6px;margin:4px;border:1px solid #ab914d;border-radius:6px;background:white;color:#222';
-    const placeholder=document.createElement('option');placeholder.value='';placeholder.textContent='Выберите роль — войти в демо';select.append(placeholder);
-    for(const [username,r,name] of accounts){const option=document.createElement('option');option.value=username;option.textContent=name+' ('+username+')';select.append(option);}
-    const syncRole=()=>{let session;try{session=JSON.parse(localStorage.getItem(SESSION)||'null')}catch{}select.value=session?.token?.startsWith('offline:')?session.user:'';};syncRole();
-    select.addEventListener('change',async()=>{if(!select.value)return;select.disabled=true;try{const result=await apiLogin(select.value,'demo');if(result.ok&&startSession(result.session)){render();window.scrollTo(0,0);}else{alert(result.error||'Войдите с вашим изменённым паролем');syncRole();}}finally{select.disabled=false;}});
-    label.append(select);banner.append(label);
 
     const note=document.createElement('p');note.textContent='Другие логины: admin, priyom, lamsklad, lamhead, lamoper, laser, vyshivka, shveya. Пароль: demo. Не используйте реальные пароли и личные данные.';note.style.cssText='font:12px system-ui;color:#666;text-align:center;padding:8px 16px';document.body.append(note);
   });
