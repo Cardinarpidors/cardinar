@@ -1,0 +1,22 @@
+/* Раздел «Конвейеры» (conveyors.js) */
+.conv-tools{display:flex;gap:10px;align-items:end;flex-wrap:wrap}.conv-filter{margin:0;min-width:170px}.conv-filter span{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+.conv-card{margin-bottom:18px}.conv-card h3{margin:0 0 12px}.conv-card h4{margin:18px 0 8px;font-size:14px}
+.conv-num{text-align:right;white-space:nowrap}.conv-row{cursor:pointer}.conv-row:hover td,.conv-row:focus td{background:rgba(225,36,28,.05)}
+.conv-error{color:var(--red)!important}.conv-msg{margin-top:6px;font-size:13px;min-height:1px}.conv-msg.ok{color:var(--green)}
+.conv-flash{margin:0 0 14px;padding:10px 14px;border-radius:12px;background:rgba(31,157,104,.14);color:var(--green);font-weight:700}
+.conv-back{margin-bottom:14px}
+.conv-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin:4px 0 12px}
+.conv-stat{border:1px solid var(--line);border-radius:12px;padding:10px 12px}.conv-stat b{display:block;font-size:22px}.conv-stat span{color:var(--muted);font-size:12px}.conv-stat.red b{color:var(--red)}
+.conv-item-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}.conv-item-head h3{margin:0}
+.conv-bar{display:flex;height:10px;border-radius:6px;background:rgba(127,140,150,.22);overflow:hidden}.conv-bar i{display:block;height:100%}
+.conv-bar .sew,.conv-legend .sew{background:var(--green)}.conv-bar .way,.conv-legend .way{background:#e0a400}.conv-bar .cut,.conv-legend .cut{background:#176ac9}
+.conv-legend{display:flex;gap:14px;font-size:12px;color:var(--muted);margin:6px 0 4px}.conv-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.conv-limit td{background:rgba(224,164,0,.16)}
+.conv-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:16px}
+.conv-action{border:1px solid var(--line);border-radius:12px;padding:12px 14px}.conv-action h4{margin:0 0 10px}.conv-action p{margin:8px 0 0;font-size:13px}
+.conv-cut-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:10px}
+.conv-form label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted)}.conv-form input{min-height:40px;padding:6px 10px;border:1px solid var(--line);border-radius:10px;font:inherit;width:100%;background:var(--surface,#fff);color:inherit}
+.conv-inline{display:flex;gap:8px;align-items:center}.conv-inline input{width:110px;flex:0 0 110px}
+.conv-ho{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid var(--line);padding:12px 0}.conv-ho:first-of-type{border-top:0}.conv-ho-status{margin-top:6px}
+.conv-accept{display:flex;gap:8px;align-items:end;flex-wrap:wrap}.conv-accept label{width:120px}.conv-accept .conv-reason{width:210px}.conv-accept .conv-msg{flex-basis:100%}
+@media(max-width:720px){.conv-tools{width:100%}.conv-filter{flex:1}.conv-accept label,.conv-accept .conv-reason{width:100%}.conv-accept button{width:100%}}

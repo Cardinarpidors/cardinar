@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Статический обзор интерактивной демо-системы Cardinar для программ и ИИ без исполнения JavaScript.">
+  <title>Cardinar - статический обзор демо</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, Arial, sans-serif; background: #080a0d; color: #f4f4f2; }
+    body { margin: 0; }
+    main { width: min(1040px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0 72px; }
+    header, section { border: 1px solid #2b2f35; background: #111419; border-radius: 18px; padding: 24px; margin-bottom: 18px; }
+    h1, h2, h3 { margin-top: 0; }
+    h1 { font-size: clamp(30px, 5vw, 52px); }
+    h2 { color: #ff5a52; }
+    p, li { line-height: 1.65; color: #d6d7da; }
+    a { color: #ff6d66; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    article { background: #171b21; border-radius: 14px; padding: 18px; }
+    article p { margin-bottom: 0; }
+    .tag { display: inline-block; padding: 7px 11px; border-radius: 999px; background: #e1241c; color: white; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="tag">Демо на вымышленных данных</p>
+      <h1>Cardinar - производственный учет</h1>
+      <p>Статический обзор для программ, поисковых роботов и ИИ-систем, которые не исполняют JavaScript. Интерактивная версия находится на <a href="/">главной странице</a>.</p>
+    </header>
+    <section>
+      <h2>Назначение</h2>
+      <p>Cardinar объединяет производство, склады, ОТК, отгрузку и управленческую аналитику. Продажи, HR и работа швей остаются во внешних программах и подключаются через API.</p>
+    </section>
+    <section>
+      <h2>Функциональные контуры</h2>
+      <div class="grid">
+        <article><h3>Панель директора</h3><p>KPI производства, складов, качества, отгрузки и состояния внешних подключений.</p></article>
+        <article><h3>Производство</h3><p>Заказы, сырье, раскрой, ОТК, упаковка, склад, отгрузка, партии и передачи.</p></article>
+        <article><h3>Контроль</h3><p>Брак, расхождения, задачи мастеру, чек-лист ОТК и журнал операций.</p></article>
+        <article><h3>Внешние программы</h3><p>Карта обмена с 1С, программой продаж, HR-системой и системой швей.</p></article>
+      </div>
+    </section>
+    <section>
+      <h2>Роли</h2>
+      <ul>
+        <li>Руководство: директор, финансовый директор, главный финансист, руководитель подразделения и руководитель производства.</li>
+        <li>Внешние роли продаж, HR и швей работают в собственных программах и в Cardinar не дублируются.</li>
+        <li>Производство: мастер, оператор участка, кладовщики, контролер ОТК, комплектовщик и охранник КПП.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Основной маршрут заказа</h2>
+      <ol>
+        <li>Приемка сырья и входной контроль.</li>
+        <li>Подготовка и раскрой с учетом нормы, факта, отходов и брака.</li>
+        <li>Передача комплектов между участками и ангарами.</li>
+        <li>Обмен заданиями и результатами с внешней системой швей.</li>
+        <li>ОТК, доработка при необходимости и подтверждение качества.</li>
+        <li>Упаковка, склад готовой продукции, комплектация и отгрузка.</li>
+      </ol>
+    </section>
+    <section>
+      <h2>Ограничения демо</h2>
+      <ul>
+        <li>Все данные вымышлены и используются только для демонстрации.</li>
+        <li>Реальные 1С, программа продаж, HR-система и система швей не подключены.</li>
+        <li>Часть тестовых изменений хранится локально в браузере.</li>
+        <li>Выбор роли упрощен для просмотра сценариев и не является рабочей авторизацией.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

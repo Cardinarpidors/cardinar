@@ -1,0 +1,17 @@
+{
+  "name": "cardinar-backend",
+  "version": "0.4.0",
+  "description": "Cardinar backend: Fastify + PostgreSQL, server-side RBAC, idempotency, audit (supply contour)",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env src/server.js",
+    "test": "PGDATABASE=cardinar_test SUPPLY_ROLES_ENABLED=1 node --env-file=.env test/rbac.test.js && PGDATABASE=cardinar_test node --env-file=.env test/production.test.js && PGDATABASE=cardinar_test node --env-file=.env test/lamination.test.js && PGDATABASE=cardinar_test node --env-file=.env test/lamination-1c.test.js && PGDATABASE=cardinar_test node --env-file=.env test/production-orders-1c.test.js && PGDATABASE=cardinar_test node --env-file=.env test/kits-flow.test.js && PGDATABASE=cardinar_test node --env-file=.env test/raw-flow.test.js && PGDATABASE=cardinar_test node --env-file=.env test/users.test.js && PGDATABASE=cardinar_test node --env-file=.env test/protocol.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "fastify": "^5.0.0",
+    "pg": "^8.12.0"
+  }
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080a0d">
+  <meta name="description" content="Интерактивная демо-версия Cardinar: производственный учет, склады, ОТК, отгрузка и подготовка интеграций с внешними программами.">
+  <meta property="og:title" content="Cardinar - производственный учет">
+  <meta property="og:description" content="Демо ERP-системы Cardinar с ролевыми сценариями и вымышленными данными.">
+  <title>Cardinar - производственный учет</title>
+  <link rel="canonical" href="https://production-accounting-1c-demo.cloudplus.uz/">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Описание демо для ИИ">
+  <link rel="icon" href="favicon-192.png?v=202609171350" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="favicon-192.png?v=202609171350">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css?v=20261019120929">
+  <link rel="stylesheet" href="conveyors.css?v=20261019120929">
+  <link rel="stylesheet" href="payment-card-icon.css?v=20260925141000">
+</head>
+<body>
+  <div id="app">
+    <main class="static-preview" aria-labelledby="static-preview-title">
+      <header class="static-preview-hero">
+        <img src="assets/cardinar-logo.svg" width="88" height="88" alt="Cardinar">
+        <div>
+          <p class="static-preview-kicker">Интерактивная демо-версия</p>
+          <h1 id="static-preview-title">Cardinar - производственный учет</h1>
+          <p>Единое рабочее пространство для производства, складов, ОТК, отгрузки и руководства.</p>
+        </div>
+      </header>
+      <section aria-labelledby="static-preview-about">
+        <h2 id="static-preview-about">О демо</h2>
+        <p>Это демонстрационное одностраничное приложение. Все сотрудники, заказы, суммы и показатели вымышлены. Реальные 1С, программа продаж, HR-система и система швей не подключены.</p>
+        <p>В браузере с JavaScript доступен интерактивный интерфейс с выбором роли. Программа без поддержки JavaScript может прочитать это описание или открыть отдельный <a href="/ai-overview.html">статический обзор системы</a>.</p>
+      </section>
+      <section aria-labelledby="static-preview-modules">
+        <h2 id="static-preview-modules">Основные разделы</h2>
+        <div class="static-preview-grid">
+          <article><h3>Руководство</h3><p>Сводные показатели производства, складов, ОТК, отгрузки и состояния внешних подключений.</p></article>
+          <article><h3>Производство</h3><p>Заказы, приемка сырья, раскрой, ОТК, упаковка, склад, отгрузка, партии и передачи между участками.</p></article>
+          <article><h3>Контроль качества</h3><p>Фиксация брака, причины, комментарии, связанные задачи мастеру и обязательный чек-лист ОТК.</p></article>
+          <article><h3>Внешние программы</h3><p>Карта обмена с 1С, программой продаж, HR-системой и системой швей без дублирования их рабочих разделов.</p></article>
+        </div>
+      </section>
+      <section aria-labelledby="static-preview-roles">
+        <h2 id="static-preview-roles">Ролевые сценарии</h2>
+        <p>В демо представлены директор, финансовый директор, главный финансист, руководитель подразделения, руководитель производства, мастер, планировщик, кладовщики, оператор участка, контролер ОТК, комплектовщик, охранник КПП и администратор интеграций.</p>
+      </section>
+      <section aria-labelledby="static-preview-flow">
+        <h2 id="static-preview-flow">Сквозной производственный маршрут</h2>
+        <ol>
+          <li>Приемка сырья и входной контроль.</li>
+          <li>Подготовка, раскрой и фиксация фактического расхода.</li>
+          <li>Передача комплектов между участками и ангарами.</li>
+          <li>Передача задания в систему швей и получение выпуска, списания или брака.</li>
+          <li>Проверка ОТК и решение о приемке или доработке.</li>
+          <li>Упаковка, склад готовой продукции, комплектация и выезд.</li>
+        </ol>
+      </section>
+      <footer class="static-preview-footer">
+        <strong>Статус:</strong> интерактивный прототип на вымышленных данных. Для полной демонстрации откройте страницу в браузере с поддержкой JavaScript.
+      </footer>
+    </main>
+  </div>
+  <script src="conveyors.js?v=20261019120929"></script>
+  <script src="data.js?v=20261019120929"></script>
+  <script src="lam-flow.js?v=20261019120929"></script>
+  <script src="users.js?v=20261019120929"></script>
+  <script src="app.js?v=20261019120929"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Маркер проекта: чей он и что это такое. Источник правды, карта его не перезаписывает.
+# Создан 2026-09-15 командой newproject. Переезжает вместе с каталогом.
+
+type: demo
+team: vp
+client: Roman Yuldashev
+owner: vp-8
+status: active
+created: 2026-09-15
+domains:
+  - production-accounting-1c-demo.cloudplus.uz

@@ -1,2 +1,0 @@
-# cardinar
-Cardinar — производственный учет
