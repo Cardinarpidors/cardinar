@@ -4,10 +4,18 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { scryptSync, randomBytes, timingSafeEqual } from 'node:crypto';
 
-export const pool = new pg.Pool({
-  host: process.env.PGHOST, port: +process.env.PGPORT,
-  user: process.env.PGUSER, password: process.env.PGPASSWORD,
-  database: process.env.PGDATABASE, max: 10,
+const databaseUrl = process.env.DATABASE_URL;
+
+export const pool = new pg.Pool(databaseUrl ? {
+  connectionString: databaseUrl,
+  max: 10,
+} : {
+  host: process.env.PGHOST,
+  port: +process.env.PGPORT,
+  user: process.env.PGUSER,
+  password: process.env.PGPASSWORD,
+  database: process.env.PGDATABASE,
+  max: 10,
 });
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -101,3 +109,4 @@ export async function addAudit(actor, action, object, details) {
 export async function addMovement(item, type, qty, warehouse, actor) {
   await pool.query('INSERT INTO movements(item,type,qty,warehouse,actor) VALUES($1,$2,$3,$4,$5)', [item, type, qty, warehouse, actor]);
 }
+
